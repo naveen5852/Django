@@ -67,6 +67,8 @@ class EmployeeEntry(APIView):
 
 class EmployeeUpdate(APIView):
 
+    permission_classes = [IsAuthenticated]
+
     def get(self, request, pk):
         try:
             query = Employee.objects.get(emp_id=pk)
@@ -99,6 +101,8 @@ class EmployeeUpdate(APIView):
 
 class EmployeeAsset(APIView):
 
+    permission_classes = [IsAuthenticated]
+
     def get(self, request):
         query = UserAssetDetail.objects.all()
         serialize = EmployeeAssetSerializer(query, many=True)
@@ -112,6 +116,8 @@ class EmployeeAsset(APIView):
 
 
 class EmployeeAssetUpdate(APIView):
+
+    permission_classes = [IsAuthenticated]
 
     def get (self, request, pk):
         try:
@@ -146,6 +152,8 @@ class EmployeeAssetUpdate(APIView):
 
 class EmployeeFamily(APIView):
 
+    permission_classes = [IsAuthenticated]
+
     def get(self, request):
         query = UserFamilyDetail.objects.all()
         serialize = EmployeeFamilySerializer(query, many=True)
@@ -159,6 +167,8 @@ class EmployeeFamily(APIView):
 
 
 class EmployeeFamilyUpdate(APIView):
+
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, pk):
         try:
