@@ -3,5 +3,7 @@ from .views import *
 
 urlpatterns = [
 
-    path('',FavFood.as_view(),name = 'FavFood'),
+    path('user/',FavFood.as_view({'get':'list','post':'create'}),name='UserDetail'),
+    path('',RandomData.as_view(),name='FavFood'),
+
 ]
