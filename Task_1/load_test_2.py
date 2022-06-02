@@ -11,4 +11,9 @@ def api_request():
     r = requests.get(url)
     print(r.json())
 
-api_request()
+pool = concurrent.futures.ProcessPoolExecutor()
+
+loop=asyncio.get_running_loop()
+x= await loop.run_in_executor(pool,api_request)
+
+# api_request()
